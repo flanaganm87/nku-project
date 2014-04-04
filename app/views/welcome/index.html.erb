@@ -1,10 +1,11 @@
 <br><br><br>
-<div id="content_container" style="margin:0 auto; min-width: 950px; min-height: 800px;">
-  <center><h1>Welcome to Collab</h1></center>
-<br>
-<h4>A private web page for a private group!</h4>
-<h6>Control who gets access to your group!</h6>
-  <h1 style = "color:#87CEEB;"> Log In </h1>
+<div id="content_container" style="margin:0 auto; min-width: 400px; height: 100%;">
+  <center><h1>Welcome to Collab</h1>
+  <br>
+  <h4>A private web page for a private group!</h4>
+  <h6>Control who gets access to your group!</h6>
+
+  <h1 style = "color:#87CEEB; margin-left:10px;"> Log In </h1>
   <br>
 
 <%= form_tag  do  %>
@@ -14,7 +15,7 @@
     <%= text_field_tag :email %><br><br>
   </p>
   <p>
-    <%= label_tag :password %>
+    <strong><%= label_tag :password %></strong>
     <%= password_field_tag :password %><br><br> 
   </p>
   <br>
@@ -22,5 +23,6 @@
     <%= submit_tag  "Log In" %>
   </p>
 <% end %>
-<%= link_to 'Back', root_path %> 
+  <p>New User? &ndash; <%= link_to 'Sign up', new_user_path %></p>
+  </center>
 </div>

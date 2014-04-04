@@ -2,7 +2,9 @@ NkuProject::Application.routes.draw do
   
   resources :users
   
-  root to: 'welcome#index'
-  
+
+  match '/users', to: 'users#show', via: 'get'
+  get '/new', to: 'users#create', via: 'POST'
+  root to: 'welcome#index'  
   
 end

@@ -1,0 +1,54 @@
+<center>
+<br><br><br>
+<h1>New User</h1>
+
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<%= form_for :user, url: users_path  do |f| %>
+  <div class="field">
+    <%= f.label "First Name" %><br>
+    <%= f.text_field :f_name %>
+  </div>
+  <div class="field">
+    <%= f.label "Last Name" %><br>
+    <%= f.text_field :l_name %>
+  </div>
+  <div class="field">
+    <%= f.label "Email" %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label "Gravatar URL" %><br>
+    <%= f.text_field :gravatar %>
+  </div>
+  <div class="field">
+    <%= f.label "Password" %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label "Password Confirmation" %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions" style="margin-top:5px;">
+    <%= f.submit %>
+  </div>
+<% end %>
+<h4> Not sure what the Group Code is?</h4>
+<h6> It is a private number that the Administrator of the group has set up, and may only be released by them. </h6>
+
+<%= link_to 'Back', root_path %>
+<% end %>
+</center>
+   
