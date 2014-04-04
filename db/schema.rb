@@ -13,11 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140404070932) do
 
-  create_table "groups", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "f_name"
     t.string   "l_name"
