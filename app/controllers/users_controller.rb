@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   include ActiveModel::Validations
+  skip_before_filter :require_authentication, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
   # POST 
   def create
     @user = User.new(user_params)
-
+    session[:user_id] = @user.id
     if @user.save
       redirect_to @user, notice: 'User was successfully created.'
     else
