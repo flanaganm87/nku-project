@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
   # POST /groups
   def create
     @group = Group.new(group_params)
-
+    @group.adminEmail = current_user.email
     if @group.save
       redirect_to @group, notice: 'Group was successfully created.'
     else
@@ -51,6 +51,6 @@ class GroupsController < ApplicationController
     end
 
     def group_params
-      params.require(:group).permit(:email, :group, :group_code)
+      params.require(:group).permit(:name, :code)
     end
 end

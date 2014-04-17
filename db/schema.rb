@@ -11,25 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405034150) do
+ActiveRecord::Schema.define(version: 20140417215435) do
 
   create_table "groups", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "adminEmail"
+    t.integer  "code"
+    t.string   "name"
   end
 
   create_table "users", force: true do |t|
     t.string   "f_name"
     t.string   "l_name"
     t.string   "email"
-    t.string   "group"
     t.string   "gravatar"
+    t.text     "groups_id"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_confirmation"
-    t.string   "password"
-    t.integer  "group_code"
-    t.string   "password_digest"
   end
 
 end

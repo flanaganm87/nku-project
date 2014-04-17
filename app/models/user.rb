@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
   include ActiveModel::Validations
-  belongs_to :group
+  serialize :groups_id, Array
+  has_many :group
   has_secure_password
   validates :email, :presence =>true,
                     :uniqueness=>true
-  validates_presence_of :f_name, :l_name, :password, :password_confirmation, :on => :create
+  validates_presence_of :f_name, :l_name, :on => :create
   
   def self.find_or_create_from_email(email)
     password = SecureRandom.base64
