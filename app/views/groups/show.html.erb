@@ -1,18 +1,19 @@
+<br><br><br>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @group.email %>
+  <strong>Admin Email:</strong>
+  <%= @group.adminEmail %>
 </p>
 
 <p>
-  <strong>Group:</strong>
-  <%= @group.group %>
+  <strong>Group Name:</strong>
+  <%= @group.name %>
 </p>
 
 <p>
-  <strong>Group code:</strong>
-  <%= @group.group_code %>
+  <strong>Group code number:</strong>
+  <%= @group.code %>
 </p>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
