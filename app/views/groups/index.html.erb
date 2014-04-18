@@ -1,15 +1,14 @@
 <br><br><br>
-<h1>Listing groups</h1>
+<center><h1>My Groups</h1>
 
-<table>
+<table cellpadding="5" cellspacing="5" width="500" border="1" style="text-align: center;">
   <thead>
     <tr>
-      <th>Email</th>
-      <th>Group</th>
-      <th>Group code</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th style="text-align:center; font-family: verdana">Administrator Email</th>
+      <th style="text-align:center; font-family: verdana">Group</th>
+      <th style="text-align:center;">Show</th>
+      <th style="text-align:center;">Edit</th>
+      <th style="text-align:center;">Join Group</th>
     </tr>
   </thead>
 
@@ -18,15 +17,13 @@
       <tr>
         <td><%= group.adminEmail %></td>
         <td><%= group.name %></td>
-        <td><%= group.code %></td>
         <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.email == group.adminEmail %>
+            <td><%= link_to 'Edit', edit_group_path(group) %></td>
+        <% end %>
+        <td><%= link_to 'Join', join_path(group) %></td> 
+     <!--   <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Group', new_group_path %>
+  </table></center>

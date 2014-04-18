@@ -8,7 +8,10 @@ NkuProject::Application.routes.draw do
   get '/new', to: 'users#create', via: 'POST'
   match '/signout', to: 'sessions#destroy',   via: 'delete'
   get 'exit', to: 'sessions#destroy', as: :logout
+  get 'join/:id', to: 'groups#join', as: 'join'
   
   root to: 'welcome#index'  
   
 end
+
+

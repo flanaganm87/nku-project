@@ -44,6 +44,12 @@ class GroupsController < ApplicationController
     @group.destroy
     redirect_to groups_url, notice: 'Group was successfully destroyed.'
   end
+  
+  def join
+    current_user.groups_id.push(params[:id])
+    current_user.save
+    redirect_to group_path, notice: 'Welcome to the Group Now start Collaborating!'    
+  end
 
   private
     def set_group
