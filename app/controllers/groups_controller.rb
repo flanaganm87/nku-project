@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :is_admin, only: 'edit' 
 
   # GET /groups
   def index
@@ -53,7 +54,13 @@ class GroupsController < ApplicationController
     current_user.save
     redirect_to group_path, notice: 'Welcome to the Group Now start Collaborating!'    
   end
-
+  
+  def is_admin
+    if !current_user.email == @group.adminEmail
+        redirect_to root_path notice: "You are not Authorized to do that!"
+    end
+  end
+  
   def comment
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
