@@ -1,31 +1,36 @@
 <br><br><br>
-<center><h1>My Groups</h1>
-
-<table cellpadding="5" cellspacing="5" width="500" border="1" style="text-align: center;">
-  <thead>
-    <tr>
-      <th style="text-align:center; font-family: verdana">Administrator Email</th>
-      <th style="text-align:center; font-family: verdana">Group</th>
-      <th style="text-align:center;">Show</th>
-      <th style="text-align:center;">Edit</th>
-      <th style="text-align:center;">Join Group</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= group.adminEmail %></td>
-        <td><%= group.name %></td>
-        <td><%= link_to 'Show', group %></td>
-        <% if current_user.email == group.adminEmail %>
-            <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <% else %>
-        <td> N/A </td>
+<center>
+  <div id="group_header">
+  <h1>Group Index</h1>
+  <h4> Join a group and start collaberating today! </h4>
+</div>
+<div class="table_container">
+    <table cellpadding="5" cellspacing="5" width="500" style="text-align: center;">
+      <thead>
+        <tr>
+          <th style="text-align:center; font-family: verdana; color: #1E90FF">Administrator Email</th>
+          <th style="text-align:center; font-family: verdana; color: #1E90FF" >Group</th>
+         <!-- <th style="text-align:center;">Show</th> -->
+          <th style="text-align:center; color: #1E90FF">Edit</th>
+          <th style="text-align:center; color: #1E90FF">Join Group</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @groups.each do |group| %>
+          <tr>
+            <td><%= group.adminEmail %></td>
+            <td><%= group.name %></td>
+          <!--  <td><%= link_to 'Show', group %></td>  -->
+            <% if current_user.email == group.adminEmail %>
+                <td><%= link_to 'Edit', edit_group_path(group) %></td>
+            <% else %>
+            <td> N/A </td>
+            <% end %>
+            <td><%= link_to 'Join', join_path(group) %></td> 
+         <!--   <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+          </tr>
         <% end %>
-        <td><%= link_to 'Join', join_path(group) %></td> 
-     <!--   <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
-    <% end %>
-  </tbody>
-  </table></center>
+      </tbody>
+      </table>
+</div></center>
