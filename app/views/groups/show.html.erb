@@ -1,15 +1,37 @@
 <br><br><br>
 <p id="notice"><%= notice %></p>
 <center><h1> Welcome to <%= @group.name %></center>
+  
+  
+  
+<h1>Collab Board</h1>
 
+<div class="comment">
+
+    <%= form_for @comment do |f| %>
+    <div class="form-group">
+      <h4><strong><%= f.label :comment %> </strong></h4>
+      <%= f.text_area :comment, class: 'form-control' %>
+    </div>    
+    <%= f.hidden_field :group_id , :value => @group.id  %>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+<br>
+<% unless @comments.empty? %>
+    <hr>
+    <h4><strong>Comments:</strong></h4>
+    <br>
+    <% @comments.each do |comment|%>    
+    <strong><%= User.find(comment.user_id).f_name %>&nbsp; said:</strong> &nbsp;<em><%= comment.comment %></em>
+    <br>
+    <hr>
+    <% end %>
+    
+<% end %>
+    <br>
+    
+</div>
   
-  <h3> Collab Board </h3>  
   
-<ul id="chat">  
-  <%= render @messages %>  
-</ul>  
   
-<%= form_for Message.new, :remote => true do |f| %>  
-  <%= f.text_field :content %>  
-  <%= f.submit "Send" %>  
-<% end %>  
+  

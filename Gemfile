@@ -8,9 +8,9 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'thin'
-gem "faye"
 gem 'bcrypt'
-gem 'nifty-generators'
+gem 'faye'
+gem 'private_pub'
 
 group :development, :test do
   gem 'byebug'

@@ -8,6 +8,9 @@ class GroupsController < ApplicationController
 
   # GET /groups/1
   def show
+    @messages = Message.all
+    @comments = Comment.where(:group_id => params[:id])
+    @comment = Comment.new
   end
 
   # GET /groups/new
@@ -51,6 +54,12 @@ class GroupsController < ApplicationController
     redirect_to group_path, notice: 'Welcome to the Group Now start Collaborating!'    
   end
 
+  def comment
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
+    @comment.save
+    redirect_to group_path(params[:comment][:group_id])
+  end
   private
     def set_group
       @group = Group.find(params[:id])
@@ -58,5 +67,9 @@ class GroupsController < ApplicationController
 
     def group_params
       params.require(:group).permit(:name, :code)
+    end
+  
+    def comment_params
+      params.require(:comment).permit!
     end
 end
