@@ -56,8 +56,8 @@ class GroupsController < ApplicationController
   end
   
   def is_admin
-    if !current_user.email == @group.adminEmail
-        redirect_to root_path notice: "You are not Authorized to do that!"
+    if current_user.email != @group.adminEmail
+        redirect_to root_path, notice: "You are not Authorized to do that!"
     end
   end
   
