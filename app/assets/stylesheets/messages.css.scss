@@ -1,3 +1,27 @@
 // Place all the styles related to the messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ h1 { font-weight: bold; }
+
+.comment { width: 350px;
+          margin-left: 15px;
+          color: #000000;
+          border: 2px  solid #000000;
+          b-webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          padding: 50px;
+          background-color: #1E90FF;
+          border-radius: 15px;
+          font-family: Georgia;}
+
+
+.comment_container { border: 2px solid #000000;
+                    margin: 5px;
+                    min-height: 50px;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                    -webkit-border-radius: 15px;
+                    -moz-border-radius: 15px;
+                    border-radius: 15px;
+                    box-shadow: 5px 5px 3px #CCCCCC;} 

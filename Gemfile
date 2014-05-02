@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'thin'
 gem 'bcrypt'
+gem 'nifty-generators'
 gem 'faye'
 gem 'private_pub'
 

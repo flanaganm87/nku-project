@@ -15,8 +15,7 @@ class MessagesController < ApplicationController
   end
   
   content = @messages
-  
-  
+ 
 end
 
 
